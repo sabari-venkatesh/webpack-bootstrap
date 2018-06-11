@@ -1,0 +1,7 @@
+@tailwind preflight;
+@import '_partial';
+$color: red;
+div {
+	color: $color;
+  box-shadow: 0px 0px 4px blue;
+}
