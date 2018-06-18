@@ -62,7 +62,12 @@ const config = {
 			exclude: /node_modules/,
 			use: [
 				MiniCssExtractPlugin.loader,
-				'css-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1
+          }
+        },
 				'postcss-loader'
 			],
 		}, {
@@ -103,7 +108,6 @@ const config = {
 if (IS_PROD) {
 	config.plugins.push(
 		// new UglifyJSPlugin(),
-		// new OptimizeCssAssetsPlugin()
 		new CleanWebpackPlugin(['dist']),
 		new OptimizeCSSAssetsPlugin({
 			cssProcessor: cssnano,
