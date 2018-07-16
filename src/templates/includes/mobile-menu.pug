@@ -1,0 +1,25 @@
+// Section: Dashboard menu
+block content
+  -var menu = {
+  - 'Overview': 'overview.html',
+  //- 'Overview Vendor': 'overview-vendor.html',
+  - 'Sales': 'sales.html',
+  - 'Inventory': 'inventory.html',
+  - 'Exceptions': 'exceptions.html',
+  - 'Advertising': 'advertising.html',
+  - 'Product Ranks': 'product-ranks.html',
+  - 'Keywords': 'keywords.html',
+  - 'Buy Box Reports': 'buy-box-reports.html',
+  - 'MAP': 'map.html',
+  - 'Reviews': 'reviews.html',
+  - 'Chargebacks': 'chargebacks.html',
+  - 'Forecasting': 'forecasting.html',
+  - 'Promotions': 'promotions.html'};
+  - var index = 0;
+  aside.sidebar.d-xl-none
+    nav.navbar.navbar-expand.navbar-secondary.navbar-dark.navbar-vertical.bg-dark
+      ul.navbar-nav.py-1.flex-column
+        each url, item in menu
+          - index++;
+          li(class='nav-item')
+            a(href=url class='nav-link py-2 ' + (selected === item.toLowerCase() ? 'active': ''))= item

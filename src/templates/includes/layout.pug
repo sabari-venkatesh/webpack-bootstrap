@@ -1,6 +1,11 @@
 doctype html
 html
   head
-    include ../includes/head
-  body
+    block link
+      -var selected = 'home';
+    meta(charset="UTF-8")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title
+      = htmlWebpackPlugin.options.title
+  body(class = htmlWebpackPlugin.options.bodyClass)
     block content

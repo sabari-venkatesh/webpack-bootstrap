@@ -1,0 +1,51 @@
+$show-baseline: true !default;
+$ease: cubic-bezier(0.45, 0.05, 0.55, 0.95); // ease-in-out-sine
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default; // bootstrap variables
+//$enable-rounded: false;
+$gray-100: #e0e0e0;
+$gray-500: #a9a9a9;
+$secondary: $gray-500;
+$gray-800: #3b4857;
+$yellow: #f7e046;
+$input-border-radius: 0;
+$btn-border-radius: 1rem;
+$card-cap-bg: #e8e8e8;
+$text-muted: #999;
+$modal-inner-padding: 0;
+$modal-lg: 1000px;
+$modal-transition: transform 0.3s $ease;
+$modal-dialog-margin-y-sm-up: 3rem;
+$transition-base: all 0.15s $ease;
+$sidebar-width: 250px !default;
+$sidebar-collapsed-width: $sidebar-width / 5 !default;
+$layers: (
+  navoverlay: 99,
+  header: 98,
+  sidebar: 100
+);
+$font-family-sans-serif: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$headings-font-weight: 300;
+$small-font-size: 87.5%;
+$popover-max-width: none;
+$progress-width: 200px;
+$blue: #46a9f7;
+$white: #fff;
+$navbar-padding-y: 0.75rem;
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 0; // Spacing
+$spacer: 1rem;
+$spacers: (
+  1: ($spacer * 0.375),
+  2: ($spacer * 0.75),
+  4: ($spacer * 1.375),
+  5: ($spacer * 1.75)
+);
+$navbar-light-color: $white;
+$navbar-light-hover-color: rgba($white, 0.8);
+$navbar-light-active-color: $yellow;
+$nav-tabs-link-active-color: $blue;
+$badge-font-size: 87.5%;
+$badge-padding-y: 0.5em !default;
+$nav-tabs-border-width: 0;
+$headings-font-weight: 300;

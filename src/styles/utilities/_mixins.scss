@@ -1,0 +1,49 @@
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "/" + $name + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+@mixin font-size($scale) {
+  $font-size: round($base-font-size * power($type-ratio, $scale));
+  font-size: if($font-size < $base-font-size, $base-font-size, $font-size);
+  font-size: if($font-size < $base-font-size, $base-font-size, $font-size) / $base-font-size + rem;
+  line-height: ceil($font-size / $base-line-height) * $base-line-height;
+  line-height: ceil($font-size / $base-line-height) * $base-line-height / $base-font-size + rem;
+}
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+@mixin baseline-grid($baseline: $base-line-height, $columns: $grid-columns) {
+  @if $show-baseline {
+    $baseline-color: $primary;
+    $gutters: ($columns - 1);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 95%, $baseline-color 100%);
+    background-size: 100% $baseline;
+    background-position: $grid-gutter-width 0px; // Use to offset and center your grid
+  }
+}
+@mixin space($offset: 2, $property: margin-bottom) {
+  #{$property}: $offset * $base-font-size;
+  #{$property}: $offset * $rhythm + rem;
+}

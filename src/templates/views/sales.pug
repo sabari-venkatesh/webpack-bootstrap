@@ -1,0 +1,148 @@
+extends ../includes/layout
+block link
+  -var selected = 'sales';
+block content
+  include ../includes/header
+  include ../includes/mobile-menu
+  .content.container-fluid
+    .row.mb-2.align-items-center
+      .col
+        h2.h4.d-md-inline-block.mb-0.text-primary Sales Overview
+        small.text-muted.ml-md-2 (From 05/20/2018 To 05/25/2018)
+      .col-auto.ml-auto.align-self-center
+        a.btn.btn-sm.btn-primary.rounded-0.d-inline-flex.align-items-center(href='download_files/sales.xlsx', role='button', title='Download', tabindex='1')
+          i.icon-download.icon-md.mr-sm-2
+          |
+          span.d-none.d-sm-block Download
+    .row
+      .col-md-6.col-xl-4.mb-4.mb-md-2
+        .card.border.rounded-0
+          .card-header.rounded-0.d-flex.justify-content-between.bg-white.p-2.border-bottom
+            h5.mb-0.text-primary Total Customers
+            span.badge.badge-primary 50
+          .card-body.p-2
+            .form-row.text-muted.text-nowrap.justify-content-center
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Sales
+                h5.mb-0 $39
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Units
+                h5.mb-0 1
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small ASP
+                h5.mb-0 $39
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Total Sales
+                h5.mb-0 $39
+              .col-3.col-md.mb-2.mb-md-0.text-center
+                small Total Units
+                h5.mb-0 $39
+      .col-md-6.col-xl-4.mb-4.mb-md-2
+        .card.border.rounded-0
+          .card-header.rounded-0.d-flex.justify-content-between.bg-white.p-2.border-bottom
+            h5.mb-0.text-primary New Customers
+            span.badge.badge-primary 25
+          .card-body.p-2
+            .form-row.text-muted.text-nowrap.justify-content-center
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Sales
+                h5.mb-0 $40
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Units
+                h5.mb-0 1
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small ASP
+                h5.mb-0 $40
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Total Sales
+                h5.mb-0 $39
+              .col-3.col-md.mb-2.mb-md-0.text-center
+                small Total Units
+                h5.mb-0 $39
+      .col-md-6.col-xl-4.mb-4.mb-md-2
+        .card.border.rounded-0
+          .card-header.rounded-0.d-flex.justify-content-between.bg-white.p-2.border-bottom
+            h5.mb-0.text-primary Repeat Customers
+            span.badge.badge-primary 48
+          .card-body.p-2
+            .form-row.text-muted.text-nowrap.justify-content-center
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Sales
+                h5.mb-0 $35
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Avg. Units
+                h5.mb-0 1
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small ASP
+                h5.mb-0 $35
+              .col-3.col-md.border-right.mb-2.mb-md-0.text-center
+                small Total Sales
+                h5.mb-0 $39
+              .col-3.col-md.mb-2.mb-md-0.text-center
+                small Total Units
+                h5.mb-0 $39
+    .row.mb-4
+      .col-md-6
+        .border.p-2
+          .btn-group(role='group', aria-label='Sales to Customers Chart' data-activecls='btn-secondary' data-defaultcls='btn-light')
+            button.btn.btn-sm.btn-light.rounded-0(type='button') Dollars
+            button.btn.btn-sm.btn-light.rounded-0(type='button') Units
+          #chart-sales_customers
+      .col-md-6
+        .border.p-2
+          .btn-group(role='group', aria-label='Sales to Amazon' data-activecls='btn-secondary' data-defaultcls='btn-light')
+            button.btn.btn-sm.btn-light.rounded-0(type='button') Dollars
+            button.btn.btn-sm.btn-light.rounded-0(type='button') Units
+          #chart-sales_amazon
+    .row.mb-2.align-items-baseline
+      .col-md-auto
+        h2.h4.d-md-inline-block.mb-0.text-primary Sales Trends
+        small.text-muted.ml-md-2 Last Updated: 05/26/2018 05:00 AM
+      .col-md-auto.pb-2
+        .btn-group(role='group', aria-label='Select Sales trends range' data-activecls='btn-primary' data-defaultcls='btn-light')
+          button.btn.btn-light(type='button') Trailing 6 Weeks
+          button.btn.btn-light(type='button') Trailing 6 Months
+      .w-100.mb-4.border-top
+      .col-12
+        ul#tab-sales_trends.nav.nav-tabs(role="tablist").border-bottom.mb-2
+          li.nav-item
+            a#tab-products.h5.p-2.nav-link.border-right.border-secondary.active(data-toggle="tab" href="#tab-products-body" role="tab" aria-controls="tab-products-body" aria-selected="true") Products
+          li.nav-item
+            a#tab-customer.h5.p-2.nav-link(data-toggle="tab" href="#tab-customer-body" role="tab" aria-controls="tab-customer-body" aria-selected="false") Customers
+        .tab-content#tab-sales_trends-body
+          #tab-products-body.tab-pane.show.active(role="tabpanel" aria-labelledby="tab-products")
+            include ../includes/sales/table-products
+          #tab-customer-body.tab-pane(role="tabpanel" aria-labelledby="tab-customer")
+            include ../includes/sales/table-customers
+    .row.mb-2
+      .col-md-auto
+        h2.h4.d-md-inline-block.mb-0.text-primary Geographic Trends
+        small.text-muted.ml-md-2 Last Updated: 05/26/2018 05:00 AM
+      .w-100.mb-4.border-top
+      .col-12
+        .row.align-items-top
+          .col-md-8.mb-2.md-mb-0
+            .border.p-2
+              #chart-sales_geographic
+          .col-md-4
+            table#table-sales_geography.table.text-muted(style="width: 100%")
+              thead
+                tr
+                  th
+                    .cell-inner State
+                  th
+                    .cell-inner Sales ($)
+                  th.text-center
+                    .cell-inner Units
+    .row.mb-2
+      .col-md-auto
+        h2.h4.d-md-inline-block.mb-0.text-primary Conversion Metrics
+        small.text-muted.ml-md-2 Last Updated: 05/26/2018 05:00 AM
+      .col-md-auto.pb-2
+        .btn-group(role='group', aria-label='Select Conversion metrics range' data-activecls='btn-primary' data-defaultcls='btn-light')
+          button.btn.btn-light(type='button') Trailing 6 Weeks
+          button.btn.btn-light(type='button') Trailing 6 Months
+      .w-100.mb-4.border-top
+      .col-12
+        include ../includes/sales/table-conversion_metrics
+  include ../includes/footer

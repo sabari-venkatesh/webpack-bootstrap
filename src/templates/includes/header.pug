@@ -1,0 +1,85 @@
+- var showSearchbar = !htmlWebpackPlugin.options.showSearchbar;
+block content
+  - var ranges = [
+  - 'Select Date Range',
+  - 'Yesterday',
+  - 'Week-to-Date',
+  - 'Prior Week',
+  - 'Month to Date',
+  - 'Prior Month',
+  - 'Customized: Enter custom date range'];
+  - var weeks = [
+  - 'Select Week',
+  - 'May 20 2018 - May 26 2018',
+  - 'May 13 2018 - May 19 2018',
+  - 'May 06 2018 - May 12 2018',
+  - 'Apr 29 2018 - May 05 2018',
+  - 'Apr 22 2018 - Apr 28 2018',
+  - 'Apr 15 2018 - Apr 21 2018'];
+  - var months = [
+  - 'Select Month',
+  - '01 Jan 2018 - 31 Jan 2018',
+  - '01 Feb 2018 - 29 Feb 2018',
+  - '01 Mar 2018 - 31 12 2018',
+  - 'Apr 01 2018 - Apr 30 2018',
+  - 'May 01 2018 - May 31 2018']
+  // Section: Header
+  header.header.has-nav.mb-2.pb-2(class=(showSearchbar ? 'pb-0' : ''))
+    .header-top.container-fluid.py-1
+      .row.no-gutters.align-items-center(class=(showSearchbar ? 'mb-0' : ''))
+        a(href="#").navbar-brand.col-md-auto.border-right.d-block.mr-0.py-1.pr-md-2.mr-md-2
+          img(src="images/logo_praesto.png" style="width: 160px").d-block.mx-auto
+        .col-6.col-md-5.col-lg-4.col-xl-3
+          .form-row.mb-0.align-items-center
+            label.d-none.d-md-inline-block.col-4.col-form-label(for="sales-marketplace") Market Place
+            .col.col-md-8
+              select.custom-select.form-control#sales-marketplace
+                option(selected='') Choose Market Place
+                option(value='2') Amazon
+                option(value='1') Best Buy
+                option(value='2') Walmart
+        a.text-dark.col-auto.pl-3.d-inline-flex.align-items-center(href='myproducts.html' title='Go to My Products page')
+          i.icon-shopping-cart.icon-md.mr-2
+          span.d-none.d-md-inline-block My Products
+        .dropdown.show.text-right.ml-auto.col-auto
+          a#user-menu.btn.text-muted.dropdown-toggle.d-inline-flex.align-items-center.rounded-0.px-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.d-none.d-md-inline-block James Walter
+            i.rounded-circle.icon-user.icon-md.ml-2.bg-secondary.px-2.py-1.text-white
+          .dropdown-menu(aria-labelledby='user-menu')
+            a.dropdown-item(href='settings.html') My Profile
+            a.dropdown-item(href='login.html') Log out
+    .header-nav.mb-2
+      include ./menubar
+    // Section: Search Filters
+    if (showSearchbar)
+      .container-fluid
+        .form-row.align-items-center
+          .col-md.mb-2.mb-md-0
+            .input-group
+              .input-group-prepend
+                span#search.input-group-text.px-2.px-md-4
+                  i.icon-search.icon-md.text-primary
+                select.custom-select.form-control.rounded-0
+                  option(value='all') All Category
+                  option(value='category1') Category 1
+                  option(value='category2') Category 2
+              input#global-search.form-control(type='text' placeholder='Search by ASIN, Part #, Model #, SKU' aria-label='Search' aria-describedby='search')
+          .col-12.col-md-auto.mb-2.mb-md-0
+            select.custom-select.form-control.select-daterange.rounded-0
+              each range in ranges
+                option(value=range) #{range}
+          .col-9.col-md-auto.mb-md-0.daterange.d-none(id='daterange')
+            .form-row
+              .col
+                .input-group.input-date
+                  input.form-control(type='text' placeholder='from date' id='daterange-from' data-date-format="MM/DD/Y")
+                  span.input-group-append.input-group-addon.cursor-hand
+                    i.input-group-text.icon-calendar.px-1.px-md-2(style='min-width: auto')
+              .col
+                .input-group.input-date
+                  input.form-control(type='text' placeholder='to date' id="daterange-to" data-date-format="MM/DD/Y")
+                  span.input-group-append.input-group-addon.cursor-hand
+                    i.input-group-text.icon-calendar.px-1.px-md-2(style='min-width: auto')
+          .col-3.col-md-auto.mt-md-0
+            button.btn.btn-primary.rounded-0.w-100 Apply
+  .overlay

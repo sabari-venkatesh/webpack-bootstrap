@@ -1,0 +1,199 @@
+block content
+  - var filters = {
+  -	'all': ['All', '3P-MFN', '3P-FBA', 'Amazon Sales'],
+  - 'cogs': ['Amazon COGS']
+  - };
+  .table-filters.text-md-right.mb-2
+    .px-3.d-md-inline-flex.align-items-center.table-filters
+      label.d-block.text-left.mb-0.mr-2.mb-1.mb-md-0(for='product-filter') Filter By:
+      each options, group in filters
+        each option in options
+          if (group === 'all')
+            a.badge.mr-1.bg-primary.text-white(href='#' name=group) #{option}
+          else
+            a.badge.badge-secondary.mr-1(href='#' name=group) #{option}
+  table#table-products_trends.table.text-muted
+    thead
+      tr
+        th
+          .font-weight-bold.cell-inner Products
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 1 2018
+            small 08-Apr - 14 Apr
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 2 2018
+            small 15-Apr - 21 Apr
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 3 2018
+            small 22-Apr - 28 Apr
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 4 2018
+            small 29-Apr - 05 May
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 5 2018
+            small 06-May - 12 May
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Week 6 2018
+            small 13-May - 19 May
+        th.text-center(colspan="2")
+          .cell-top
+            .font-weight-bold.text-primary Current Week
+            small 20-May - 26 May
+      tr
+        th.text-center
+          select.custom-select.form-control.form-control-sm.w-50.mx-auto.d-block.text-muted.h-50
+            option(selected="") SKU
+            option(value="1") ASIN
+            option(value="2") Model
+            option(value="2") Part
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+        th.text-primary
+          span.cell-inner Sales($)
+        th.text-primary
+          span.cell-inner Units
+      tr.total
+        th.text-center Total
+        th.text-right 4593.00
+        th.text-center 137.00
+        th.text-right 4606.00
+        th.text-center 144
+        th.text-right 5136.00
+        th.text-center 143.00
+        th.text-right 5120.00
+        th.text-center 150
+        th.text-right 5806.00
+        th.text-center 151.00
+        th.text-right 5059.00
+        th.text-center 144
+        th.text-right 5179.00
+        th.text-center 150
+    tbody
+      tr
+        td
+          .d-flex.align-items-center.text-primary
+            img.border.rounded(src='images/B018E65WW2.jpg' style='height: 42px; width: 42px;')
+            .ml-2
+              a(href="http://www.amazon.com/dp/B018E65WW2" target="_blank") B018E65WW2
+              .text-center Vs
+              div Prior Yr/ASP
+        td
+          .py-1 2,295.00
+          .py-1.text-danger 12%
+        td
+          .py-1 68
+          .py-1 $110.00
+        td
+          .py-1 2,301.00
+          .py-1.text-success 13%
+        td
+          .py-1 69
+          .py-1 $115.00
+        td
+          .py-1 2,356.00
+          .py-1.text-success 17%
+        td
+          .py-1 73
+          .py-1 $120.00
+        td
+          .py-1 2,318.00
+          .py-1.text-danger 15%
+        td
+          .py-1 70
+          .py-1 $125.00
+        td
+          .py-1 2,372.00
+          .py-1.text-success 19%
+        td
+          .py-1 76
+          .py-1 $130.00
+        td
+          .py-1 2,358.00
+          .py-1.text-danger 17%
+        td
+          .py-1 74
+          .py-1 $130.00
+        td
+          .py-1 2,380.00
+          .py-1.text-success 20%
+        td
+          .py-1 70
+          .py-1 $130.00
+      tr
+        td
+          .text-center.d-flex.align-items-center.text-primary
+            img.border.rounded(src='images/B01BON4QAQ.jpg' style='height: 42px; width: 42px;')
+            .ml-2
+              a(href="http://www.amazon.com/dp/B01BON4QAQ" target="_blank") B01BON4QAQ
+              .text-center Vs
+              div Prior Yr/ASP
+        td
+          .py-1 2,298.00
+          .py-1.text-danger 12%
+        td
+          .py-1 69
+          .py-1 $150.00
+        td
+          .py-1 2,305.00
+          .py-1.text-success 14%
+        td
+          .py-1 75
+          .py-1 $120.00
+        td
+          .py-1 2,780.00
+          .py-1.text-success 23%
+        td
+          .py-1 70
+          .py-1 $130.00
+        td
+          .py-1 2,802.00
+          .py-1.text-success 26%
+        td
+          .py-1 80
+          .py-1 $140.00
+        td
+          .py-1 2,714.00
+          .py-1.text-danger 20%
+        td
+          .py-1 75
+          .py-1 $135.00
+        td
+          .py-1 2,701.00
+          .py-1.text-danger 19%
+        td
+          .py-1 70
+          .py-1 $125.00
+        td
+          .py-1 2,799.00
+          .py-1.text-success 25%
+        td
+          .py-1 80
+          .py-1 $140.00

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praesto - sales
+    </title>
+  <link href="styles/app.css" rel="stylesheet"></head>
+  <body>
+    <!-- Section: Header-->
+    <header class="header has-nav mb-2 pb-2 pb-0">
+      <div class="header-top container-fluid py-1">
+        <div class="row no-gutters align-items-center mb-0"><a class="navbar-brand col-md-auto border-right d-block mr-0 py-1 pr-md-2 mr-md-2" href="#"><img class="d-block mx-auto" src="images/logo_praesto.png" style="width: 160px"></a>
+          <div class="col-6 col-md-5 col-lg-4 col-xl-3">
+            <div class="form-row mb-0 align-items-center">
+              <label class="d-none d-md-inline-block col-4 col-form-label" for="sales-marketplace">Market Place</label>
+              <div class="col col-md-8">
+                <select class="custom-select form-control" id="sales-marketplace">
+                  <option selected="">Choose Market Place</option>
+                  <option value="2">Amazon</option>
+                  <option value="1">Best Buy</option>
+                  <option value="2">Walmart</option>
+                </select>
+              </div>
+            </div>
+          </div><a class="text-dark col-auto pl-3 d-inline-flex align-items-center" href="myproducts.html" title="Go to My Products page"><i class="icon-shopping-cart icon-md mr-2"></i><span class="d-none d-md-inline-block">My Products</span></a>
+          <div class="dropdown show text-right ml-auto col-auto"><a class="btn text-muted dropdown-toggle d-inline-flex align-items-center rounded-0 px-0" id="user-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-none d-md-inline-block">James Walter</span><i class="rounded-circle icon-user icon-md ml-2 bg-secondary px-2 py-1 text-white"></i></a>
+            <div class="dropdown-menu" aria-labelledby="user-menu"><a class="dropdown-item" href="settings.html">My Profile</a><a class="dropdown-item" href="login.html">Log out</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="header-nav mb-2">
+        <!-- Section: Dashboard menu-->
+        <nav class="navbar navbar-expand bg-primary navbar-light">
+          <button class="d-xl-none btn navbar-toggle rounded-0 bg-transparent text-white"><i class="icon-menu icon-md"></i></button>
+          <h1 class="h4 text-white ml-2 mb-0 d-xl-none">Praesto - sales</h1>
+          <ul class="navbar-nav d-none d-xl-inline-flex">
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="overview.html">Overview</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 active" href="sales.html">Sales</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="inventory.html">Inventory</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="exceptions.html">Exceptions</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="advertising.html">Advertising</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="product-ranks.html">Product Ranks</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="keywords.html">Keywords</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="buy-box-reports.html">Buy Box Reports</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="map.html">MAP</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="reviews.html">Reviews</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="chargebacks.html">Chargebacks</a></li>
+            <li class="nav-item border-right"><a class="nav-link py-0 " href="forecasting.html">Forecasting</a></li>
+            <li class="nav-item "><a class="nav-link py-0 " href="promotions.html">Promotions</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Section: Search Filters-->
+      <div class="container-fluid">
+        <div class="form-row align-items-center">
+          <div class="col-md mb-2 mb-md-0">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text px-2 px-md-4" id="search"><i class="icon-search icon-md text-primary"></i></span>
+                <select class="custom-select form-control rounded-0">
+                  <option value="all">All Category</option>
+                  <option value="category1">Category 1</option>
+                  <option value="category2">Category 2</option>
+                </select>
+              </div>
+              <input class="form-control" id="global-search" type="text" placeholder="Search by ASIN, Part #, Model #, SKU" aria-label="Search" aria-describedby="search">
+            </div>
+          </div>
+          <div class="col-12 col-md-auto mb-2 mb-md-0">
+            <select class="custom-select form-control select-daterange rounded-0">
+              <option value="Select Date Range">Select Date Range</option>
+              <option value="Yesterday">Yesterday</option>
+              <option value="Week-to-Date">Week-to-Date</option>
+              <option value="Prior Week">Prior Week</option>
+              <option value="Month to Date">Month to Date</option>
+              <option value="Prior Month">Prior Month</option>
+              <option value="Customized: Enter custom date range">Customized: Enter custom date range</option>
+            </select>
+          </div>
+          <div class="col-9 col-md-auto mb-md-0 daterange d-none" id="daterange">
+            <div class="form-row">
+              <div class="col">
+                <div class="input-group input-date">
+                  <input class="form-control" type="text" placeholder="from date" id="daterange-from" data-date-format="MM/DD/Y"><span class="input-group-append input-group-addon cursor-hand"><i class="input-group-text icon-calendar px-1 px-md-2" style="min-width: auto"></i></span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group input-date">
+                  <input class="form-control" type="text" placeholder="to date" id="daterange-to" data-date-format="MM/DD/Y"><span class="input-group-append input-group-addon cursor-hand"><i class="input-group-text icon-calendar px-1 px-md-2" style="min-width: auto"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 col-md-auto mt-md-0">
+            <button class="btn btn-primary rounded-0 w-100">Apply</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="overlay"></div>
+    <!-- Section: Dashboard menu-->
+    <aside class="sidebar d-xl-none">
+      <nav class="navbar navbar-expand navbar-secondary navbar-dark navbar-vertical bg-dark">
+        <ul class="navbar-nav py-1 flex-column">
+          <li class="nav-item"><a class="nav-link py-2 " href="overview.html">Overview</a></li>
+          <li class="nav-item"><a class="nav-link py-2 active" href="sales.html">Sales</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="inventory.html">Inventory</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="exceptions.html">Exceptions</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="advertising.html">Advertising</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="product-ranks.html">Product Ranks</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="keywords.html">Keywords</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="buy-box-reports.html">Buy Box Reports</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="map.html">MAP</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="reviews.html">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="chargebacks.html">Chargebacks</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="forecasting.html">Forecasting</a></li>
+          <li class="nav-item"><a class="nav-link py-2 " href="promotions.html">Promotions</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="content container-fluid">
+      <div class="row mb-2 align-items-center">
+        <div class="col">
+          <h2 class="h4 d-md-inline-block mb-0 text-primary">Sales Overview</h2><small class="text-muted ml-md-2">(From 05/20/2018 To 05/25/2018)</small>
+        </div>
+        <div class="col-auto ml-auto align-self-center"><a class="btn btn-sm btn-primary rounded-0 d-inline-flex align-items-center" href="download_files/sales.xlsx" role="button" title="Download" tabindex="1"><i class="icon-download icon-md mr-sm-2"></i><span class="d-none d-sm-block">Download</span></a></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-xl-4 mb-4 mb-md-2">
+          <div class="card border rounded-0">
+            <div class="card-header rounded-0 d-flex justify-content-between bg-white p-2 border-bottom">
+              <h5 class="mb-0 text-primary">Total Customers</h5><span class="badge badge-primary">50</span>
+            </div>
+            <div class="card-body p-2">
+              <div class="form-row text-muted text-nowrap justify-content-center">
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Sales</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Units</small>
+                  <h5 class="mb-0">1</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>ASP</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Total Sales</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+                <div class="col-3 col-md mb-2 mb-md-0 text-center"><small>Total Units</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-md-2">
+          <div class="card border rounded-0">
+            <div class="card-header rounded-0 d-flex justify-content-between bg-white p-2 border-bottom">
+              <h5 class="mb-0 text-primary">New Customers</h5><span class="badge badge-primary">25</span>
+            </div>
+            <div class="card-body p-2">
+              <div class="form-row text-muted text-nowrap justify-content-center">
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Sales</small>
+                  <h5 class="mb-0">$40</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Units</small>
+                  <h5 class="mb-0">1</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>ASP</small>
+                  <h5 class="mb-0">$40</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Total Sales</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+                <div class="col-3 col-md mb-2 mb-md-0 text-center"><small>Total Units</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-md-2">
+          <div class="card border rounded-0">
+            <div class="card-header rounded-0 d-flex justify-content-between bg-white p-2 border-bottom">
+              <h5 class="mb-0 text-primary">Repeat Customers</h5><span class="badge badge-primary">48</span>
+            </div>
+            <div class="card-body p-2">
+              <div class="form-row text-muted text-nowrap justify-content-center">
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Sales</small>
+                  <h5 class="mb-0">$35</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Avg. Units</small>
+                  <h5 class="mb-0">1</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>ASP</small>
+                  <h5 class="mb-0">$35</h5>
+                </div>
+                <div class="col-3 col-md border-right mb-2 mb-md-0 text-center"><small>Total Sales</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+                <div class="col-3 col-md mb-2 mb-md-0 text-center"><small>Total Units</small>
+                  <h5 class="mb-0">$39</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="border p-2">
+            <div class="btn-group" role="group" aria-label="Sales to Customers Chart" data-activecls="btn-secondary" data-defaultcls="btn-light">
+              <button class="btn btn-sm btn-light rounded-0" type="button">Dollars</button>
+              <button class="btn btn-sm btn-light rounded-0" type="button">Units</button>
+            </div>
+            <div id="chart-sales_customers"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="border p-2">
+            <div class="btn-group" role="group" aria-label="Sales to Amazon" data-activecls="btn-secondary" data-defaultcls="btn-light">
+              <button class="btn btn-sm btn-light rounded-0" type="button">Dollars</button>
+              <button class="btn btn-sm btn-light rounded-0" type="button">Units</button>
+            </div>
+            <div id="chart-sales_amazon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2 align-items-baseline">
+        <div class="col-md-auto">
+          <h2 class="h4 d-md-inline-block mb-0 text-primary">Sales Trends</h2><small class="text-muted ml-md-2">Last Updated: 05/26/2018 05:00 AM</small>
+        </div>
+        <div class="col-md-auto pb-2">
+          <div class="btn-group" role="group" aria-label="Select Sales trends range" data-activecls="btn-primary" data-defaultcls="btn-light">
+            <button class="btn btn-light" type="button">Trailing 6 Weeks</button>
+            <button class="btn btn-light" type="button">Trailing 6 Months</button>
+          </div>
+        </div>
+        <div class="w-100 mb-4 border-top"></div>
+        <div class="col-12">
+          <ul class="nav nav-tabs border-bottom mb-2" id="tab-sales_trends" role="tablist">
+            <li class="nav-item"><a class="h5 p-2 nav-link border-right border-secondary active" id="tab-products" data-toggle="tab" href="#tab-products-body" role="tab" aria-controls="tab-products-body" aria-selected="true">Products</a></li>
+            <li class="nav-item"><a class="h5 p-2 nav-link" id="tab-customer" data-toggle="tab" href="#tab-customer-body" role="tab" aria-controls="tab-customer-body" aria-selected="false">Customers</a></li>
+          </ul>
+          <div class="tab-content" id="tab-sales_trends-body">
+            <div class="tab-pane show active" id="tab-products-body" role="tabpanel" aria-labelledby="tab-products">
+              <div class="table-filters text-md-right mb-2">
+                <div class="px-3 d-md-inline-flex align-items-center table-filters">
+                  <label class="d-block text-left mb-0 mr-2 mb-1 mb-md-0" for="product-filter">Filter By:</label><a class="badge mr-1 bg-primary text-white" href="#" name="all">All</a><a class="badge mr-1 bg-primary text-white" href="#" name="all">3P-MFN</a><a class="badge mr-1 bg-primary text-white" href="#" name="all">3P-FBA</a><a class="badge mr-1 bg-primary text-white" href="#" name="all">Amazon Sales</a><a class="badge badge-secondary mr-1" href="#" name="cogs">Amazon COGS</a>
+                </div>
+              </div>
+              <table class="table text-muted" id="table-products_trends">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="font-weight-bold cell-inner">Products</div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 1 2018</div><small>08-Apr - 14 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 2 2018</div><small>15-Apr - 21 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 3 2018</div><small>22-Apr - 28 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 4 2018</div><small>29-Apr - 05 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 5 2018</div><small>06-May - 12 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 6 2018</div><small>13-May - 19 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="2">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Current Week</div><small>20-May - 26 May</small>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-center">
+                      <select class="custom-select form-control form-control-sm w-50 mx-auto d-block text-muted h-50">
+                        <option selected="">SKU</option>
+                        <option value="1">ASIN</option>
+                        <option value="2">Model</option>
+                        <option value="2">Part</option>
+                      </select>
+                    </th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                  </tr>
+                  <tr class="total">
+                    <th class="text-center">Total</th>
+                    <th class="text-right">4593.00</th>
+                    <th class="text-center">137.00</th>
+                    <th class="text-right">4606.00</th>
+                    <th class="text-center">144</th>
+                    <th class="text-right">5136.00</th>
+                    <th class="text-center">143.00</th>
+                    <th class="text-right">5120.00</th>
+                    <th class="text-center">150</th>
+                    <th class="text-right">5806.00</th>
+                    <th class="text-center">151.00</th>
+                    <th class="text-right">5059.00</th>
+                    <th class="text-center">144</th>
+                    <th class="text-right">5179.00</th>
+                    <th class="text-center">150</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center text-primary"><img class="border rounded" src="images/B018E65WW2.jpg" style="height: 42px; width: 42px;">
+                        <div class="ml-2"><a href="http://www.amazon.com/dp/B018E65WW2" target="_blank">B018E65WW2</a>
+                          <div class="text-center">Vs</div>
+                          <div>Prior Yr/ASP</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,295.00</div>
+                      <div class="py-1 text-danger">12%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">68</div>
+                      <div class="py-1">$110.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,301.00</div>
+                      <div class="py-1 text-success">13%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">69</div>
+                      <div class="py-1">$115.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,356.00</div>
+                      <div class="py-1 text-success">17%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">73</div>
+                      <div class="py-1">$120.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,318.00</div>
+                      <div class="py-1 text-danger">15%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">70</div>
+                      <div class="py-1">$125.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,372.00</div>
+                      <div class="py-1 text-success">19%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">76</div>
+                      <div class="py-1">$130.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,358.00</div>
+                      <div class="py-1 text-danger">17%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">74</div>
+                      <div class="py-1">$130.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,380.00</div>
+                      <div class="py-1 text-success">20%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">70</div>
+                      <div class="py-1">$130.00</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-center d-flex align-items-center text-primary"><img class="border rounded" src="images/B01BON4QAQ.jpg" style="height: 42px; width: 42px;">
+                        <div class="ml-2"><a href="http://www.amazon.com/dp/B01BON4QAQ" target="_blank">B01BON4QAQ</a>
+                          <div class="text-center">Vs</div>
+                          <div>Prior Yr/ASP</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,298.00</div>
+                      <div class="py-1 text-danger">12%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">69</div>
+                      <div class="py-1">$150.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,305.00</div>
+                      <div class="py-1 text-success">14%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">75</div>
+                      <div class="py-1">$120.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,780.00</div>
+                      <div class="py-1 text-success">23%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">70</div>
+                      <div class="py-1">$130.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,802.00</div>
+                      <div class="py-1 text-success">26%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">80</div>
+                      <div class="py-1">$140.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,714.00</div>
+                      <div class="py-1 text-danger">20%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">75</div>
+                      <div class="py-1">$135.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,701.00</div>
+                      <div class="py-1 text-danger">19%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">70</div>
+                      <div class="py-1">$125.00</div>
+                    </td>
+                    <td>
+                      <div class="py-1">2,799.00</div>
+                      <div class="py-1 text-success">25%</div>
+                    </td>
+                    <td>
+                      <div class="py-1">80</div>
+                      <div class="py-1">$140.00</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="tab-customer-body" role="tabpanel" aria-labelledby="tab-customer">
+              <table class="table text-muted" id="table-customers_trends">
+                <thead>
+                  <tr>
+                    <th class="text-primary" rowspan="2"><span class="cell-inner font-weight-bold">Customers</span></th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 1 2018</div><small>08-Apr - 14 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 2 2018</div><small>15-Apr - 21 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 3 2018</div><small>22-Apr - 28 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 4 2018</div><small>29-Apr - 05 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 5 2018</div><small>06-May - 12 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 6 2018</div><small>13-May - 19 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Current Week</div><small>20-May - 26 May</small>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1 purchases</td>
+                    <td class="text-success">52</td>
+                    <td>1644.55</td>
+                    <td>45</td>
+                    <td class="text-danger">48</td>
+                    <td>1679.6</td>
+                    <td>40</td>
+                    <td class="text-success">49</td>
+                    <td>1928.25</td>
+                    <td>45</td>
+                    <td class="text-danger">44</td>
+                    <td>2311.65</td>
+                    <td>55</td>
+                    <td class="text-success">46</td>
+                    <td>2199.5</td>
+                    <td>50</td>
+                    <td class="text-danger">45</td>
+                    <td>1937.25</td>
+                    <td>45</td>
+                    <td class="text-success">49</td>
+                    <td>2111.52</td>
+                    <td>48</td>
+                  </tr>
+                  <tr>
+                    <td>2-4 purchases</td>
+                    <td class="text-success">41</td>
+                    <td>1900.6</td>
+                    <td>52</td>
+                    <td class="text-success">44</td>
+                    <td>2183.48</td>
+                    <td>52</td>
+                    <td class="text-success">46</td>
+                    <td>2399.66</td>
+                    <td>56</td>
+                    <td class="text-success">49</td>
+                    <td>2521.08</td>
+                    <td>60</td>
+                    <td class="text-success">51</td>
+                    <td>2331.47</td>
+                    <td>53</td>
+                    <td class="text-danger">50</td>
+                    <td>1808.1</td>
+                    <td>42</td>
+                    <td class="text-success">52</td>
+                    <td>2287.48</td>
+                    <td>52</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap">5+ purchases</td>
+                    <td class="text-success">23</td>
+                    <td>1498.55</td>
+                    <td>41</td>
+                    <td class="text-success">28</td>
+                    <td>1805.57</td>
+                    <td>43</td>
+                    <td class="text-success">31</td>
+                    <td>2228.2</td>
+                    <td>52</td>
+                    <td class="text-danger">42</td>
+                    <td>2185.56</td>
+                    <td>52</td>
+                    <td class="text-success">48</td>
+                    <td>1979.55</td>
+                    <td>45</td>
+                    <td class="text-success">50</td>
+                    <td>1506.75</td>
+                    <td>35</td>
+                    <td class="text-danger">47</td>
+                    <td>2331.47</td>
+                    <td>53</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4 class="mb-0">New Customers (first purchase in trailing 12 months)</h4>
+              <table class="table text-muted" id="table-customers_trends_new">
+                <thead>
+                  <tr>
+                    <th rowspan="2"><span class="cell-inner font-weight-bold">Customers</span></th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 1 2018</div><small>08-Apr - 14 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 2 2018</div><small>15-Apr - 21 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 3 2018</div><small>22-Apr - 28 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 4 2018</div><small>29-Apr - 05 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 5 2018</div><small>06-May - 12 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 6 2018</div><small>13-May - 19 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Current Week</div><small>20-May - 26 May</small>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap">1 purchases</td>
+                    <td class="text-success">17</td>
+                    <td>548.25</td>
+                    <td>15</td>
+                    <td class="text-danger">16</td>
+                    <td>545.87</td>
+                    <td>13</td>
+                    <td class="text-danger">16</td>
+                    <td>642.75</td>
+                    <td>15</td>
+                    <td class="text-danger">14</td>
+                    <td>756.54</td>
+                    <td>18</td>
+                    <td class="text-success">15</td>
+                    <td>703.84</td>
+                    <td>16</td>
+                    <td class="text-success">15</td>
+                    <td>645.75</td>
+                    <td>15</td>
+                    <td class="text-success">16</td>
+                    <td>703.84</td>
+                    <td>16</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap">2-4 purchases</td>
+                    <td class="text-success">13</td>
+                    <td>621.35</td>
+                    <td>17</td>
+                    <td class="text-success">14</td>
+                    <td>713.83</td>
+                    <td>17</td>
+                    <td class="text-success">15</td>
+                    <td>771.3</td>
+                    <td>18</td>
+                    <td class="text-success">16</td>
+                    <td>840.06</td>
+                    <td>20</td>
+                    <td class="text-success">17</td>
+                    <td>747.83</td>
+                    <td>17</td>
+                    <td class="text-danger">16</td>
+                    <td>602.7</td>
+                    <td>14</td>
+                    <td class="text-success">17</td>
+                    <td>747.83</td>
+                    <td>17</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap">5+ purchases</td>
+                    <td class="text-success">7</td>
+                    <td>475.15</td>
+                    <td>13</td>
+                    <td class="text-success">9</td>
+                    <td>587.86</td>
+                    <td>14</td>
+                    <td class="text-success">10</td>
+                    <td>728.45</td>
+                    <td>17</td>
+                    <td class="text-danger">9</td>
+                    <td>714.51</td>
+                    <td>17</td>
+                    <td class="text-success">16</td>
+                    <td>659.85</td>
+                    <td>15</td>
+                    <td class="text-danger">16</td>
+                    <td>473.55</td>
+                    <td>11</td>
+                    <td class="text-danger">15</td>
+                    <td>747.83</td>
+                    <td>17</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4 class="mb-0">Repeat Customers (1 purchase in trailing 12 months)</h4>
+              <table class="table text-muted" id="table-customers_trends_repeat">
+                <thead>
+                  <tr>
+                    <th rowspan="2"><span class="cell-inner font-weight-bold">Customers</span></th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 1 2018</div><small>08-Apr - 14 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 2 2018</div><small>15-Apr - 21 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 3 2018</div><small>22-Apr - 28 Apr</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 4 2018</div><small>29-Apr - 05 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 5 2018</div><small>06-May - 12 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Week 6 2018</div><small>13-May - 19 May</small>
+                      </div>
+                    </th>
+                    <th class="text-center" colspan="3">
+                      <div class="cell-top">
+                        <div class="font-weight-bold text-primary">Current Week</div><small>20-May - 26 May</small>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                    <th class="text-primary"><span class="cell-inner">#Customers</span></th>
+                    <th class="text-primary"><span class="cell-inner">Sales($)</span></th>
+                    <th class="text-primary"><span class="cell-inner">Units</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-nowrap">1 purchases</td>
+                    <td class="text-success">35</td>
+                    <td>1096.5</td>
+                    <td>30</td>
+                    <td class="text-danger">32</td>
+                    <td>1133.73</td>
+                    <td>27</td>
+                    <td class="text-success">33</td>
+                    <td>1285.5</td>
+                    <td>30</td>
+                    <td class="text-danger">28</td>
+                    <td>1555.11</td>
+                    <td>37</td>
+                    <td class="text-success">31</td>
+                    <td>1495.66</td>
+                    <td>34</td>
+                    <td class="text-danger">30</td>
+                    <td>1291.5</td>
+                    <td>30</td>
+                    <td class="text-success">33</td>
+                    <td>1407.68</td>
+                    <td>32</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap">2-4 purchases</td>
+                    <td class="text-success">28</td>
+                    <td>1297.25</td>
+                    <td>35</td>
+                    <td class="text-success">30</td>
+                    <td>1469.65</td>
+                    <td>35</td>
+                    <td class="text-success">31</td>
+                    <td>1628.3</td>
+                    <td>38</td>
+                    <td class="text-success">33</td>
+                    <td>1681.2</td>
+                    <td>40</td>
+                    <td class="text-success">34</td>
+                    <td>1583.64</td>
+                    <td>36</td>
+                    <td class="text-success">34</td>
+                    <td>1205.4</td>
+                    <td>28</td>
+                    <td class="text-success">35</td>
+                    <td>1539.65</td>
+                    <td>35</td>
+                  </tr>
+                  <tr>
+                    <td class="text-nowrap">5+ purchases</td>
+                    <td class="text-success">16</td>
+                    <td>1023.4</td>
+                    <td>28</td>
+                    <td class="text-success">19</td>
+                    <td>1217.71</td>
+                    <td>29</td>
+                    <td class="text-success">21</td>
+                    <td>1499.75</td>
+                    <td>35</td>
+                    <td class="text-success">33</td>
+                    <td>1471.05</td>
+                    <td>35</td>
+                    <td class="text-success">32</td>
+                    <td>1319.7</td>
+                    <td>30</td>
+                    <td class="text-success">34</td>
+                    <td>1033.2</td>
+                    <td>24</td>
+                    <td class="text-danger">32</td>
+                    <td>1583.64</td>
+                    <td>36</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-auto">
+          <h2 class="h4 d-md-inline-block mb-0 text-primary">Geographic Trends</h2><small class="text-muted ml-md-2">Last Updated: 05/26/2018 05:00 AM</small>
+        </div>
+        <div class="w-100 mb-4 border-top"></div>
+        <div class="col-12">
+          <div class="row align-items-top">
+            <div class="col-md-8 mb-2 md-mb-0">
+              <div class="border p-2">
+                <div id="chart-sales_geographic"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <table class="table text-muted" id="table-sales_geography" style="width: 100%">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="cell-inner">State</div>
+                    </th>
+                    <th>
+                      <div class="cell-inner">Sales ($)</div>
+                    </th>
+                    <th class="text-center">
+                      <div class="cell-inner">Units</div>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-auto">
+          <h2 class="h4 d-md-inline-block mb-0 text-primary">Conversion Metrics</h2><small class="text-muted ml-md-2">Last Updated: 05/26/2018 05:00 AM</small>
+        </div>
+        <div class="col-md-auto pb-2">
+          <div class="btn-group" role="group" aria-label="Select Conversion metrics range" data-activecls="btn-primary" data-defaultcls="btn-light">
+            <button class="btn btn-light" type="button">Trailing 6 Weeks</button>
+            <button class="btn btn-light" type="button">Trailing 6 Months</button>
+          </div>
+        </div>
+        <div class="w-100 mb-4 border-top"></div>
+        <div class="col-12">
+          <table class="table text-muted" id="table-conversion_metrics">
+            <thead>
+              <tr>
+                <th class="text-center">
+                  <div class="font-weight-bold cell-inner">Products</div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 1 2018</div><small>08-Apr - 14 Apr</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 2 2018</div><small>15-Apr - 21 Apr</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 3 2018</div><small>22-Apr - 28 Apr</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 4 2018</div><small>29-Apr - 05 May</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 5 2018</div><small>06-May - 12 May</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Week 6 2018</div><small>13-May - 19 May</small>
+                  </div>
+                </th>
+                <th class="text-center" colspan="3">
+                  <div class="cell-top">
+                    <div class="font-weight-bold text-primary">Current Week</div><small>20-May - 26 May</small>
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <select class="custom-select form-control form-control-sm w-50 mx-auto d-block text-muted">
+                    <option selected="">SKU</option>
+                    <option value="1">ASIN</option>
+                    <option value="2">Model</option>
+                    <option value="2">Part</option>
+                  </select>
+                </th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+                <th class="text-primary"><span class="cell-inner">Unique Page Views</span></th>
+                <th class="text-primary"><span class="cell-inner">Units Sold</span></th>
+                <th class="text-primary"><span class="cell-inner">Conversion in %</span></th>
+              </tr>
+              <tr class="total">
+                <th class="text-center">TOTAL</th>
+                <th class="text-center">1060</th>
+                <th class="text-center">110</th>
+                <th class="text-center">10</th>
+                <th class="text-center">1101</th>
+                <th class="text-center">123</th>
+                <th class="text-center">10</th>
+                <th class="text-center">990</th>
+                <th class="text-center">100</th>
+                <th class="text-center">10</th>
+                <th class="text-center">1176</th>
+                <th class="text-center">140</th>
+                <th class="text-center">11</th>
+                <th class="text-center">1085</th>
+                <th class="text-center">131</th>
+                <th class="text-center">12</th>
+                <th class="text-center">1146</th>
+                <th class="text-center">137</th>
+                <th class="text-center">12</th>
+                <th class="text-center">1211</th>
+                <th class="text-center">148</th>
+                <th class="text-center">12</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center text-primary"><img class="border rounded" src="images/B018E65WW2.jpg" style="width: 42px; height: 42px;">
+                    <div class="ml-2"><a href="http://www.amazon.com/dp/B018E65WW2" target="_blank">B018E65WW2</a></div>
+                  </div>
+                </td>
+                <td>543</td>
+                <td>62</td>
+                <td class="text-success">11%</td>
+                <td>575</td>
+                <td>68</td>
+                <td class="text-success">11%</td>
+                <td>510</td>
+                <td>52</td>
+                <td class="text-danger">10%</td>
+                <td>556</td>
+                <td>72</td>
+                <td class="text-success">12%</td>
+                <td>510</td>
+                <td>69</td>
+                <td class="text-success">13%</td>
+                <td>526</td>
+                <td>68</td>
+                <td class="text-danger">12%</td>
+                <td>569</td>
+                <td>75</td>
+                <td class="text-success">13%</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-center d-flex align-items-center text-primary"><img class="border rounded" src="images/B01BON4QAQ.jpg" style="width: 42px; height: 42px;">
+                    <div class="ml-2"><a href="http://www.amazon.com/dp/B01BON4QAQ" target="_blank">B01BON4QAQ</a></div>
+                  </div>
+                </td>
+                <td>517</td>
+                <td>48</td>
+                <td class="text-success">9%</td>
+                <td>526</td>
+                <td>55</td>
+                <td class="text-success">10%</td>
+                <td>480</td>
+                <td>48</td>
+                <td class="text-danger">10%</td>
+                <td>620</td>
+                <td>68</td>
+                <td class="text-success">10%</td>
+                <td>575</td>
+                <td>62</td>
+                <td class="text-success">10%</td>
+                <td>620</td>
+                <td>69</td>
+                <td class="text-success">11%</td>
+                <td>642</td>
+                <td>73</td>
+                <td class="text-success">11%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+<div class="footer p-4 text-center text-white bg-primary">
+  <p class="mb-0">Copyrights 2018. Praesto. All Rights Reserved</p>
+</div>
+  <script type="text/javascript" src="scripts/app.js"></script><script type="text/javascript" src="scripts/sales.js"></script></body>
+</html>

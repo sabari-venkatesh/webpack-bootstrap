@@ -1,0 +1,153 @@
+[class^="icon-"],
+[class*=" icon-"],
+th[class*='sorting'] .cell-inner:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-md {
+  font-size: 1.5rem;
+}
+
+.icon-lg {
+  font-size: 2rem;
+}
+
+.icon-plus:before {
+  content: "\F067";
+}
+
+.icon-search:before {
+  content: "\F002";
+}
+
+.icon-user:before {
+  content: "\F007";
+}
+
+.icon-check:before {
+  content: "\F00C";
+}
+
+.icon-close:before {
+  content: "\F00D";
+}
+
+.icon-cog:before {
+  content: "\F013";
+}
+
+.icon-bin:before {
+  content: "\F014";
+}
+
+.icon-download:before {
+  content: "\F019";
+}
+
+.icon-lock-closed:before {
+  content: "\F023";
+}
+
+.icon-pencil:before {
+  content: "\F040";
+}
+
+.icon-export-outline:before {
+  content: "\F045";
+}
+
+.icon-chevron-left:before,
+.icon-prev:before {
+  content: "\F053";
+}
+
+.icon-chevron-right:before,
+.icon-next:before {
+  content: "\F054";
+}
+
+.icon-info:before {
+  content: "\F06A";
+}
+
+.icon-eye:before {
+  content: "\F06E";
+}
+
+.icon-eye-blocked:before {
+  content: "\F070";
+}
+
+.icon-calendar:before {
+  content: "\F073";
+}
+
+.icon-group:before {
+  content: "\F0C0";
+}
+
+.icon-menu:before {
+  content: "\F0C9";
+}
+
+.icon-sort:before,
+th[class*='sorting'] .cell-inner:before {
+  content: "\f0dc";
+}
+
+.icon-sort-desc:before,
+th[class*='sorting'].sorting_desc .cell-inner:before {
+  content: "\f0dd";
+}
+
+.icon-sort-asc:before,
+.table thead th[class*='sorting'].sorting_asc .cell-inner:before {
+  content: "\f0de";
+}
+
+.icon-envelope:before {
+  content: "\F0E0";
+}
+
+.icon-upload:before {
+  content: "\f093";
+}
+
+.icon-meter:before {
+  content: "\F0E4";
+}
+
+.icon-bell:before,
+.icon-notification:before {
+  content: "\F0F3";
+}
+
+.icon-ellipsis:before {
+  content: "\F142";
+}
+
+.icon-shopping-cart:before {
+  content: "\f07a";
+}
+
+.icon-shopping-bag:before {
+  content: "\F290";
+}
+
+.icon-tags:before {
+  content: "\f02c";
+}
+
+.table thead th[class*='sorting']:after {
+  display: none !important;
+}
